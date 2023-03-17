@@ -39,6 +39,7 @@ int main(void)
 						putchar(' ');
 					}
 				}
+				dig4 = '0';
 			}
 		}
 	}
