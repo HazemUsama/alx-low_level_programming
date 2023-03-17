@@ -19,7 +19,7 @@ int main(void)
 		{
 			putchar(dig1);
 			putchar(dig2);
-			if (dig1 != '8' && dig2 != '9')
+			if (dig1 != '8' || dig2 != '9')
 			{
 				putchar(',');
 				putchar(' ');
