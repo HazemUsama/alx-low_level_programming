@@ -1,4 +1,5 @@
 	.file	"4-puts.c"
+	.intel_syntax noprefix
 	.text
 	.section	.rodata
 	.align 8
@@ -10,16 +11,16 @@
 main:
 .LFB0:
 	.cfi_startproc
-	pushq	%rbp
+	push	rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movq	%rsp, %rbp
+	mov	rbp, rsp
 	.cfi_def_cfa_register 6
-	leaq	.LC0(%rip), %rax
-	movq	%rax, %rdi
+	lea	rax, .LC0[rip]
+	mov	rdi, rax
 	call	puts@PLT
-	movl	$0, %eax
-	popq	%rbp
+	mov	eax, 0
+	pop	rbp
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
