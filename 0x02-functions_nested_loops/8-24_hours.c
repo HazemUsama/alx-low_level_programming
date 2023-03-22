@@ -36,7 +36,7 @@ void jack_bauer(void)
 		for (m = 0; m <= 59; m++)
 		{
 			printc(h);
-			_putchar('-');
+			_putchar(':');
 			printc(m);
 			_putchar('\n');
 		}
