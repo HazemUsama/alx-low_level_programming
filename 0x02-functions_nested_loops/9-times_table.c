@@ -10,7 +10,7 @@
 *
 */
 
-void printc(int c, bool i)
+void printc(int c, int i)
 {
 	char ch1, ch2;
 
