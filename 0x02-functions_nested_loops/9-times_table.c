@@ -17,7 +17,7 @@ void printc(int c)
         c /= 10;
         ch1 = c % 10 + '0';
 	_putchar(',');
-	if (ch1 != '0')
+	if (ch1 == '0')
 	{
 		_putchar(' ');
 	}
