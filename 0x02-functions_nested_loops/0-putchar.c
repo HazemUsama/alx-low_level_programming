@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <main.h>
+#include "main.h"
 /* more headers goes there */
 #include <stdio.h>
 /* betty style doc for function main goes there */
