@@ -16,7 +16,14 @@ void printc(int c)
         ch2 = c % 10 + '0';
         c /= 10;
         ch1 = c % 10 + '0';
-        _putchar(ch1);
+	_putchar(',');
+	if (ch1 != '0')
+	{
+		_putchar(' ');
+	}
+	_putchar(' ');
+	if (ch1 != '0')
+		_putchar(ch1);
         _putchar(ch2);
 }
 
@@ -31,9 +38,6 @@ void times_table(void)
 		for (j = 0; j <= 9; j++)
 		{
 			printc(i * j);
-			_putchar(',');
-			_putchar(' ');
-			_putchar(' ');
 		}
 		_putchar('\n');
 	}
