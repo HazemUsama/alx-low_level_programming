@@ -11,6 +11,6 @@
  */
 int main(void)
 {
-	printf("_putchar\n");
-	return (0);
+	char ch = '0' + '-';
+	printf("%c", ch);
 }
