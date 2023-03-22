@@ -22,7 +22,9 @@ void printc(int c)
 		_putchar(' ');
 	_putchar(' ');
 	if (ch1 != '0')
+	{
 		_putchar(ch1);
+	}
 	_putchar(ch2);
 }
 
