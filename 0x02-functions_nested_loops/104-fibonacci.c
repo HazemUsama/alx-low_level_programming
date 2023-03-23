@@ -1,28 +1,64 @@
-
-#include "main.h"
 #include <stdio.h>
 
+void print128(__int128 n);
 /**
- * main - Entry point
- * Description: prints the sum of all the multiples of 3 or 5 below 1024
- * Return: Always 0 (Success)
+ * main - main function
+ *
+ * Return: nothing
  */
-int  main(void)
+
+int main(void)
 {
-	__int128 i, x, y, z;
+	int counter = 2;
+	__int128 a, b, c;
 
-	x = 0;
-	y = 1;
+	a = 0;
+	b = 1;
+	c = a + b;
 
-	for (i = 0; i < 98; i++)
+	while (counter < 100)
 	{
-		z = x + y;
-		printf("%llu", z);
-		if (i < 98)
+		counter++;
+		print128(c);
+		a = b;
+		b = c;
+		c = a + b;
+		if (counter < 100)
+		{
 			printf(", ");
-		x = y;
-		y = z;
+		}
 	}
 	printf("\n");
 	return (0);
+}
+/**
+ * print128 - prints a 128-bit integer to the console
+ *
+ * @n: the 128-bit integer value to print
+ *
+ * Description:
+ * This function takes a value of type __int128 and prints
+ * it to the console as a decimal integer.
+ * The function is designed to handle very large integers that
+ * cannot be represented by standard C data types such as long long.
+ */
+void print128(__int128 n)
+{
+	__int128 rev = 0;
+	int cnt = 0, i;
+
+	while (n)
+	{
+		rev *= 10;
+		rev += n % 10;
+		n /= 10;
+		cnt++;
+	}
+
+	while (cnt--)
+	{
+		i = rev % 10;
+		printf("%d", i);
+		rev /= 10;
+	}
 }
