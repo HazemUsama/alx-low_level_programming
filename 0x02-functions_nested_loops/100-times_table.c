@@ -24,12 +24,12 @@ void printc(int c, int i)
 		_putchar(',');
 		if (ch3 == '0')
 			_putchar(' ');
-		if (ch2 == '0')
+		if (ch2 == '0' && ch3 == '0')
 			_putchar(' ');
 		_putchar(' ');
 		if (ch3 != '0')
 			_putchar(ch3);
-		if (ch2 != '0')
+		if (ch2 != '0' || ch3 != '0')
 			_putchar(ch2);
 
 	}
