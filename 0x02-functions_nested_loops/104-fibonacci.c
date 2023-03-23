@@ -9,7 +9,7 @@
  */
 int  main(void)
 {
-	__int64_t i, x, y, z;
+	__int128_t i, x, y, z;
 
 	x = 0;
 	y = 1;
