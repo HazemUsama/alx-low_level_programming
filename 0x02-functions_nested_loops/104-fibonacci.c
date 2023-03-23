@@ -17,7 +17,7 @@ int  main(void)
 	for (i = 0; i < 98; i++)
 	{
 		z = x + y;
-		printf("%lu", z);
+		printf("%llu", z);
 		if (i < 98)
 			printf(", ");
 		x = y;
