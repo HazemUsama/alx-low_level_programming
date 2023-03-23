@@ -38,7 +38,7 @@ void printc(int c, int i)
 }
 
 /**
- * times_table - main function
+ * print_times_table - main function
  *
  * @n: print the times table for this number
  */
