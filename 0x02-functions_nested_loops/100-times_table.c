@@ -43,7 +43,7 @@ void printc(int c, int i)
  * @n: print the times table for this number
  */
 
-void times_table(int n)
+void print_times_table(int n)
 {
 	int i, j;
 	
