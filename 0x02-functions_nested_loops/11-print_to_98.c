@@ -1,6 +1,6 @@
 #include "main.h"
 #include <unistd.h>
-#include <iostream>
+#include <stdio.h>
 
 /**
  * print_to_98 - main function
