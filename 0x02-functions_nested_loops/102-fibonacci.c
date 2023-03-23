@@ -17,7 +17,7 @@ int  main(void)
 	for (i = 0; i < 50; i++)
 	{
 		z = x + y;
-		printf("%d", z);
+		printf("%ld", z);
 		if (i < 49)
 			printf(", ");
 		x = y;
