@@ -2,7 +2,7 @@
 
 /**
  * print_most_numbers - print the given digit.
- */
+ */ 	 
 void print_most_numbers(void)
 {
 	char ch;
