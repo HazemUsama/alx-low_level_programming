@@ -6,7 +6,6 @@
 void more_numbers(void)
 {
 	char ch;
-	int cnt;
 
 	for (ch = '0'; ch <= '9'; ch++)
 		_putchar(ch);
