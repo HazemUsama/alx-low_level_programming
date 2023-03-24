@@ -2,7 +2,7 @@
 
 /**
  * more_numbers - print the given digit.
- */ 	 
+ */
 void more_numbers(void)
 {
 	char ch;
