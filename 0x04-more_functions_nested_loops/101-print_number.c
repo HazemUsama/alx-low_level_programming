@@ -13,7 +13,8 @@ void print_number(int n)
 	rev = 0;
 	if (!n)
 		_putchar('0');
-	 if (n == -2147483648) {
+	if (n == -2147483648)
+	{
 		n = 147483648;
 		_putchar('-');
 		_putchar('2');
