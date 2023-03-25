@@ -28,11 +28,11 @@ int main(void)
 	for (i = 2; i * i <= num; i++)
 	{
 		if (num % i == 0)
-		{
 			maxi = max(i, maxi);
-			maxi = max(num / i, maxi);
-		}
+		while (num % i == 0)
+			num /= i;
 	}
+	maxi = max(maxi, num);
 	printf("%ld\n", maxi);
 	return (0);
 }
