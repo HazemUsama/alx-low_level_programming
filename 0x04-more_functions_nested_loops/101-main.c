@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - check the code
@@ -7,15 +8,15 @@
  */
 int main(void)
 {
-    print_number(1);
-    _putchar('\n');
-    print_number(-1000000);
-    _putchar('\n');
-    print_number(1024);
-    _putchar('\n');
-    print_number(0);
-    _putchar('\n');
-    print_number(10101010);
-    _putchar('\n');
+	int n;
+
+	while (1)
+	{
+		printf("Enter a number: ");
+		scanf("%d", &n);
+		print_number(n);
+		_putchar('\n');
+	}
+
     return (0);
 }
