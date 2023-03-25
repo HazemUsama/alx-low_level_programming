@@ -13,6 +13,11 @@ void print_number(int n)
 	rev = 0;
 	if (!n)
 		_putchar('0');
+	if (n < 0)
+	{
+		n *= -1;
+		_putchar('-');
+	}
 	while (n)
 	{
 		rev *= 10;
@@ -20,11 +25,6 @@ void print_number(int n)
 		n /= 10;
 		cnt++;
 	}
-	if (rev < 0)
-	{
-		rev *= -1;
-		_putchar('-');
-	}	
 	while (cnt--)
 	{
 		i = rev % 10 + '0';
