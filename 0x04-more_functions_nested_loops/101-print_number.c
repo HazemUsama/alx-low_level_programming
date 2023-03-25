@@ -8,7 +8,7 @@ void print_number(int n)
 {
 	int rev, cnt;
 	char i;
-	
+
 	cnt = 0;
 	rev = 0;
 	if (!n)
