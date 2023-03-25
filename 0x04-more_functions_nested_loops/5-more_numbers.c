@@ -12,7 +12,7 @@ void more_numbers(void)
 	{
 		cnt = 0;
 		ch = '0';
-		while (1)	
+		while (1)
 		{
 			if (cnt > 9)
 				_putchar('1');
@@ -25,7 +25,6 @@ void more_numbers(void)
 				ch = '0';
 			if (cnt > 14)
 				break;
-		
 		}
 		_putchar('\n');
 	}
