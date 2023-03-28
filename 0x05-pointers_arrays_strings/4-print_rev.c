@@ -10,7 +10,7 @@
  */
 void  print_rev(char *s)
 {
-	const int len = strlen(s);
+	int len = strlen(s);
 	int i;
 	char tmp;
 
