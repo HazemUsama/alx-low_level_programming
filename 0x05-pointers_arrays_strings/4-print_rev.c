@@ -12,12 +12,14 @@ void  print_rev(char *s)
 {
 	const int len = strlen(s);
 	int i;
-	char *rev = s;
+	char tmp;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len / 2; i++)
 	{
-		rev[len - 1 - i] = s[i];
+		tmp = s[i];
+		s[i] = s[len - 1  i];
+		s[len - 1 - i] = tmp;
 	}
-	puts(rev);
+	puts(s);
 
 }
