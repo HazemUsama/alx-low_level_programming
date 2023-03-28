@@ -20,6 +20,7 @@ void  print_rev(char *s)
 		s[i] = s[len - 1 - i];
 		s[len - 1 - i] = tmp;
 	}
+	s[len] = '\0';
 	puts(s);
 
 }
