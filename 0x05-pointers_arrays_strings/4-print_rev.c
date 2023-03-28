@@ -10,15 +10,14 @@
  */
 void  print_rev(char *s)
 {
-	int len, i;
-	char rev[len + 1];
+	const int len = strlen(s);
+	int i;
+	char *rev = s;
 
-	len = strlen(s);
 	for (i = 0; i < len; i++)
 	{
 		rev[len - 1 - i] = s[i];
 	}
-	rev[len] = '\0';
 	puts(rev);
 
 }
