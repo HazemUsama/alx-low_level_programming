@@ -10,5 +10,6 @@
  */
 void  _puts(char *s)
 {
-	puts("%s\n", s);
+	puts(s);
+	puts('\n');
 }
