@@ -3,7 +3,7 @@
 /**
  * _strcmp - appends two strings
  *
- * @s1 the first string
+ * @s1: the first string
  * @s2: the second string
  *
  * Return: pointer to the final string
