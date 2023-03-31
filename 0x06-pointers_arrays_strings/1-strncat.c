@@ -5,6 +5,7 @@
  *
  * @dest: the first string
  * @src: the second string
+ * @n: number of chars
  *
  * Return: pointer to the final string
  */
