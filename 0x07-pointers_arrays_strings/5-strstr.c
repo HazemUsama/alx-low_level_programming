@@ -5,11 +5,10 @@
 /**
  * _strstr - searches a string for any of a set of bytes
  *
- * @s: the string to search into
- * @accept: the chars we need to match
+ * @haystack: the string to be searched
+ * @needle: the substring we are searching for
  *
- * Return: number of bytes in the initial segment
- * of @s which consist only of bytes from accept
+ * Return: a pointer for the first occurrence of the substring
  */
 char *_strstr(char *haystack, char *needle)
 {
