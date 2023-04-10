@@ -11,7 +11,7 @@
  * Return: number of bytes in the initial segment
  * of @s which consist only of bytes from accept
  */
-unsigned int _strpbrk(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
 	return (strpbrk(s, accept));
 }
