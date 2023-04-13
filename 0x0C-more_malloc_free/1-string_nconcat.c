@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 /**
  * string_nconcat- concatenates two strings
  * @s1: first string
@@ -19,7 +19,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	len1 = strlen(s1), len2 = min(strlen(s2), n);
+	len1 = strlen(s1), len2 = strlen(s2) <= n ? strlen(s2) : n;
 	s = malloc(sizeof(char) * (len1 + len2 + 1));
 
 	if (s == NULL)
