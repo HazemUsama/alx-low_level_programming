@@ -11,7 +11,7 @@
 int main(int argc, char **argv)
 {
 	int ans = 0;
-	
+
 	while (--argc && ++argv)
 	{
 		ans += atoi(*argv);
@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 			}
 			(*argv)++;
 		}
-		
 	}
 	printf("%i\n", ans);
 	return (0);
