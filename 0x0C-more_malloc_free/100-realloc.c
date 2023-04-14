@@ -12,7 +12,7 @@
  **/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *tmp;
+	void *new_ptr;
 
 	if (old_size == new_size)
 		return (ptr);
@@ -22,9 +22,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	tmp = ptr;
+	new_ptr = malloc(new_size);
+	memcpy(new_ptr, ptr, old_size < new_size ? old_size : new_size);
 	free(ptr);
-	ptr = malloc(new_size);
-	memcpy(ptr, old, old_size < new_size ? old_size : new_size);
-	return (ptr);
+	return (new_ptr);
 }
