@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * create_array - creates an array of chars, and initializes it with a specific char
+ * create_array - creates an array of chars,
+ * and initializes it with a specific char
  * @size: the size of the array
  * @c: the char we will initialize with
  *
@@ -14,7 +15,7 @@ char *create_array(unsigned int size, char c)
 	char *ptr = malloc(size + 1);
 	unsigned int i;
 
-	if (ptr == NULL)
+	if (ptr == NULL or size == 0)
 		return (NULL);
 	for (i = 0; i < size; i++)
 		ptr[i] = c;
