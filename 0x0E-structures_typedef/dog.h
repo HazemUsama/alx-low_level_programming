@@ -1,11 +1,11 @@
 #ifndef WOAF
 #define WOAF
-/*
+/**
  * struct dog - dog class
  *
  * @name: Dog's name
  * @age: Dog's age
- * @owner: owner's name
+ * @owner: Owner's name
  */
 struct dog
 {
@@ -14,6 +14,4 @@ struct dog
 	char *owner;
 };
 
-#endif 
-
-
+#endif
