@@ -1,29 +1,21 @@
 #include <stdio.h>
 #include <stdarg.h>
-
 /**
- * print_all - prints anything
- * 
- * @format: list of types of arguments
+ * print - print whatever format is given
+ *
+ * @ptr: pointer to the variable
+ * @format: what format is the variable
+ *
+ * Return: 1 if there is something to print otherwise 0
  */
-void print_all(const char * const format, ...)
+int print(va_list ptr, char format)
 {
-	va_list ptr;
-	unsigned int cnt = 0, flag = 0;
 	char c;
 	int i;
 	float f;
 	char *s;
 
-	va_start(ptr, format);
-	
-	while (format[cnt] != '\0')
-	{
-		if (flag)
-			printf(", ");
-
-		flag = 1;
-		switch(format[cnt])
+	switch (format)
 		{
 			case 'c':
 				c = va_arg(ptr, int);
@@ -42,8 +34,28 @@ void print_all(const char * const format, ...)
 				printf("%s", s ? s : "(nil)");
 				break;
 			default:
-				flag = 0;
+				return (0);
 		}
+	return (1);
+}
+/**
+ * print_all - prints anything
+ *
+ * @format: list of types of arguments
+ */
+void print_all(const char * const format, ...)
+{
+	va_list ptr;
+	unsigned int cnt = 0, flag = 0;
+
+	va_start(ptr, format);
+
+	while (format[cnt] != '\0')
+	{
+		if (flag)
+			printf(", ");
+
+		flag = print(ptr, format[cnt]);
 		cnt++;
 	}
 
