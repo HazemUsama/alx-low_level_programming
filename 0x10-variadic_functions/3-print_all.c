@@ -50,7 +50,7 @@ void print_all(const char * const format, ...)
 
 	va_start(ptr, format);
 
-	while (format[cnt] != '\0')
+	while (format && format[cnt] != '\0')
 	{
 		if (flag && (format[cnt] == 'c' || format[cnt] == 'i'
 		|| format[cnt] == 'f' || format[cnt] == 's'))
