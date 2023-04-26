@@ -16,26 +16,26 @@ int print(va_list ptr, char format)
 	char *s;
 
 	switch (format)
-		{
-			case 'c':
-				c = va_arg(ptr, int);
-				printf("%c", c);
-				break;
-			case 'i':
-				i = va_arg(ptr, int);
-				printf("%i", i);
-				break;
-			case 'f':
-				f = va_arg(ptr, double);
-				printf("%f", f);
-				break;
-			case 's':
-				s = va_arg(ptr, char *);
-				printf("%s", s ? s : "(nil)");
-				break;
-			default:
-				return (0);
-		}
+	{
+		case 'c':
+			c = va_arg(ptr, int);
+			printf("%c", c);
+			break;
+		case 'i':
+			i = va_arg(ptr, int);
+			printf("%i", i);
+			break;
+		case 'f':
+			f = va_arg(ptr, double);
+			printf("%f", f);
+			break;
+		case 's':
+			s = va_arg(ptr, char *);
+			printf("%s", s ? s : "(nil)");
+			break;
+		default:
+			return (0);
+	}
 	return (1);
 }
 /**
@@ -52,10 +52,11 @@ void print_all(const char * const format, ...)
 
 	while (format[cnt] != '\0')
 	{
-		if (flag)
+		if (flag && (format[cnt] == 'c' || format[cnt] == 'i'
+		|| format[cnt] == 'f' || format[cnt] == 's'))
 			printf(", ");
 
-		flag = print(ptr, format[cnt]);
+		flag += print(ptr, format[cnt]);
 		cnt++;
 	}
 
