@@ -17,7 +17,6 @@ int _sqrt_helper(long low, long high, long n)
 	if (low <= high)
 	{
 		mid = (high - low) / 2 + low;
-		printf("mid: %ld\n", mid);
 		if (mid * mid == n)
 			return (mid);
 		if (mid * mid > n)
