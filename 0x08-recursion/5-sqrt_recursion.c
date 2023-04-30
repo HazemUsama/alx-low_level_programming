@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * _sqrt_helper - returns the natural square root of a number 
- * 
+ * _sqrt_helper - returns the natural square root of a number
+ *
  * @low: lowest number to be evaluated
  * @high: highest number to be evaluated
  * @n: number to be evaluated
- * 
- * Return: natural square root of n or -1 if n does not have a natural square root 
+ *
+ * Return: natural square root of n or -1
+ * if n does not have a natural square root
  */
 int _sqrt_helper(int low, int high, int n)
 {
@@ -34,4 +35,4 @@ int _sqrt_helper(int low, int high, int n)
 int _sqrt_recursion(int n)
 {
 	return (_sqrt_helper(1, n, n));
-} 	
+}
