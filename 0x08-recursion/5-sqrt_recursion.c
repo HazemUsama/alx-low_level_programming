@@ -34,5 +34,7 @@ int _sqrt_helper(int low, int high, int n)
  */
 int _sqrt_recursion(int n)
 {
+	if (n < 0)
+		return (-1);
 	return (_sqrt_helper(1, n, n));
 }
