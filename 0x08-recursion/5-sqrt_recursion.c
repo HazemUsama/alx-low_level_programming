@@ -10,13 +10,14 @@
  * Return: natural square root of n or -1
  * if n does not have a natural square root
  */
-int _sqrt_helper(int low, int high, int n)
+int _sqrt_helper(long low, long high, long n)
 {
-	int mid;
+	long mid;
 
 	if (low <= high)
 	{
-		mid = (low + high) / 2;
+		mid = (high - low) / 2 + low;
+		printf("mid: %ld\n", mid);
 		if (mid * mid == n)
 			return (mid);
 		if (mid * mid > n)
