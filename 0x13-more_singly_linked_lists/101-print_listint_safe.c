@@ -39,9 +39,6 @@ size_t print_listint_safe(const listint_t *head)
 	size_t i, flag;
 	const listint_t *node, *end_point;
 
-	if (head == NULL)
-		exit(98);
-
 	node = head;
 	end_point = find_cycle((listint_t *)head);
 	flag = 0;
