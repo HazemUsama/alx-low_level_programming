@@ -45,6 +45,7 @@ size_t print_listint_safe(const listint_t *head)
 	node = head;
 	end_point = find_cycle((listint_t *)head);
 	flag = 0;
+	i = 0;
 	while (node != NULL)
 	{
 		printf("[%p] %d\n", (void *)node, node->n);
