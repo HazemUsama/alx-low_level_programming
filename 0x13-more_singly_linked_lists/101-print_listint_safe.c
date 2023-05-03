@@ -49,7 +49,7 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)node, node->n);
 		node = node->next;
-		if (node == end_point)
+		if (node == end_point && node)
 		{
 			if (flag)
 			{
