@@ -56,7 +56,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (flag)
 			{
 				printf("-> [%p] %d\n", (void *)node, node->n);
-				return (i);
+				return (i + 1);
 			}
 			flag = 1;
 		}
