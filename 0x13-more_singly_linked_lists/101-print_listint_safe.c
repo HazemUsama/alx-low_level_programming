@@ -5,25 +5,39 @@
  * @head: pointer to the head of the list
  * Return: the number of nodes in the list
  */
+/**
+ * print_listint_safe - prints a listint_t linked list
+ * @head: pointer to the head of the list
+ * Return: the number of nodes in the list
+ */
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i;
-	const listint_t *node, *next_node;
+	const listint_t *tortoise, *hare;
 
 	if (head == NULL)
 		exit(98);
 
-	node = head;
-	next_node = node->next;
+	tortoise = head;
+	hare = head;
 
-	for (i = 1; next_node != NULL && next_node < node; i++)
+	while (hare != NULL && hare->next != NULL)
 	{
-		printf("[%p] %d\n", (void *)node, node->n);
-		node = next_node;
-		next_node = next_node->next;
+		tortoise = tortoise->next;
+		hare = hare->next->next;
+		if (tortoise == hare)
+		{
+			break;
+		}
 	}
-	printf("[%p] %d\n", (void *)node, node->n);
-	if (next_node != NULL)
-		printf("-> [%p] %d\n", (void *)next_node, next_node->n);
+
+	for (i = 0; head != NULL && (i == 0 || head != hare); i++)
+	{
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
+	}
+	if (i != 0)
+		printf("-> [%p] %d\n", (void *)head, head->n);
+
 	return (i);
 }
