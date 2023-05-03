@@ -21,6 +21,8 @@ char **strtow(char *str)
 		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 			++wc;
 	}
+	if (wc == 0)
+		return (NULL);
 	words = malloc((wc + 1) * sizeof(char *));
 	if (words == NULL)
 		return (NULL);
