@@ -22,6 +22,7 @@ size_t print_listint_safe(const listint_t *head)
 			if (node == visited[i])
 			{
 				printf("-> [%p] %d\n", (void *)node, node->n);
+				free(visited);
 				return (visited_size);
 			}
 		}
@@ -34,5 +35,6 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *)node, node->n);
 		node = node->next;
 	}
+	free(visited);
 	return (visited_size);
 }
