@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
- * find_cycle - finds a cycle in a linked list 
- * 
+ * find_cycle - finds a cycle in a linked list
+ *
  * @head: pointer to the head of the list
  * Return: the start of the cycle, or NULL if there is no cycle
  */
@@ -15,7 +15,7 @@ listint_t *find_cycle(listint_t *head)
 	{
 		slow = slow->next;
 		fast = fast->next->next;
-		
+
 		if (slow == fast)
 		{
 			slow = head;
