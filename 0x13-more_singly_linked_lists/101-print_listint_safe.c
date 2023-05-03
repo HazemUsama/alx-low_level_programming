@@ -25,5 +25,5 @@ size_t print_listint_safe(const listint_t *head)
 	printf("[%p] %d\n", (void *)node, node->n);
 	if (next_node != NULL)
 		printf("-> [%p] %d\n", (void *)next_node, next_node->n);
-	return (i + 1);
+	return (i);
 }
