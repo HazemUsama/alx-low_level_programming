@@ -1,34 +1,5 @@
 #include "lists.h"
-/**
- * find_cycle - finds a cycle in a linked list
- *
- * @head: pointer to the head of the list
- * Return: the start of the cycle, or NULL if there is no cycle
- */
-listint_t *find_cycle(listint_t *head)
-{
-	listint_t *slow, *fast;
 
-	slow = head;
-	fast = head;
-	while (slow && fast && fast->next)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (slow == fast)
-		{
-			slow = head;
-			while (slow != fast)
-			{
-				slow = slow->next;
-				fast = fast->next;
-			}
-			return (slow);
-		}
-	}
-	return (NULL);
-}
 /**
  * print_listint_safe - prints a listint_t linked list
  * @head: pointer to the head of the list
@@ -36,27 +7,32 @@ listint_t *find_cycle(listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t i, flag;
-	const listint_t *node, *end_point;
+	size_t i, visited_size;
+	const listint_t *node;
+	const listint_t **visited;
 
 	node = head;
-	end_point = find_cycle((listint_t *)head);
-	flag = 0;
-	i = 0;
+	visited_size = 0;
+	visited = NULL;
+
 	while (node != NULL)
 	{
-		printf("[%p] %d\n", (void *)node, node->n);
-		node = node->next;
-		i++;
-		if (node == end_point && node)
+		for (i = 0; i < visited_size; i++)
 		{
-			if (flag)
+			if (node == visited[i])
 			{
 				printf("-> [%p] %d\n", (void *)node, node->n);
-				return (i);
+				return (visited_size);
 			}
-			flag = 1;
 		}
+		visited_size++;
+		visited = realloc(visited, visited_size * sizeof(*visited));
+		if (visited == NULL)
+			exit(98);
+
+		visited[visited_size - 1] = node;
+		printf("[%p] %d\n", (void *)node, node->n);
+		node = node->next;
 	}
-	return (i);
+	return (visited_size);
 }
