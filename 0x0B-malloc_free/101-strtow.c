@@ -2,34 +2,48 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 /**
- * argstostr - concatenates all the arguments of your program
+ * strtow - splits a string into words
+ * @str: string to split
  *
- * @ac: arguments count
- * @av: arguments
- *
- * Return: a pointer to a new string or null if it fails
- **/
-char *argstostr(int ac, char **av)
+ * Return: pointer to an array of strings (words)
+ */
+char **strtow(char *str)
 {
-	int i, j, size = 1 + ac, cnt = 0;
-	char *str;
+	char **words;
+	int i, j, k, l, wc = 0, len = 0;
 
-	if (ac == 0 || av == NULL)
+	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (i = 0; i < ac; i++)
-		size += strlen(av[i]);
-
-	str = malloc(size);
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0; i < ac; i++)
+	for (i = 0; str[i] != '\0'; ++i)
 	{
-		for (j = 0; j < (int) strlen(av[i]); j++)
-			str[cnt++] = av[i][j];
-		str[cnt++] = '\n';
+		if (str[i] != ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+			++wc;
 	}
-	str[cnt] = '\0';
-	return (str);
+	words = malloc((wc + 1) * sizeof(char *));
+	if (words == NULL)
+		return (NULL);
+	for (i = 0, j = 0; j < wc; ++i)
+	{
+		if (str[i] != ' ')
+		{
+			for (len = 0, k = i; str[k] != '\0' && str[k] != ' '; ++k)
+				++len;
+			words[j] = malloc((len + 1) * sizeof(char));
+			if (words[j] == NULL)
+			{
+				for (k = 0; k < j; ++k)
+					free(words[k]);
+				free(words);
+				return (NULL);
+			}
+			for (l = 0; l < len; ++l, ++i)
+				words[j][l] = str[i];
+			words[j][l] = '\0';
+			j++;
+		}
+	}
+	words[j] = NULL;
+	return (words);
 }
