@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * flip_bits - calc the number of bits you would need to flip to get from one number to another
+ * flip_bits - number of bits need to flip
  *
  * @n: ...
  * @m: ...
  *
- * Retrun: number of bits need to be fliped
+ * Return: number of flipped bits
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
