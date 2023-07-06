@@ -10,5 +10,5 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	return (__builtin_popcount(n ^ m));
+	return (__builtin_popcount((n ^ m)));
 }
