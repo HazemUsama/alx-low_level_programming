@@ -7,7 +7,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int start = 0, i = 31;
+	int start = 0, i = 32;
 
 	if (!n)
 		_putchar('0');
