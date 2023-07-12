@@ -11,24 +11,20 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char buffer[1024];
 	FILE *file;
 	size_t lettersRead, totalLetters = 0;
+	char *buffer = malloc(letters);
 
-	if (filename == NULL)
+	if (filename == NULL || buffer == NULL)
 		return (0);
 
-	file = fopen(filename, "r");
-	if (file == NULL)
+	file = open(filename, "r");
+	if (file == -1)
 		return (0);
-
-	while (totalLetters < letters &&
-	(lettersRead = fread(buffer, sizeof(char), letters, file)))
-	{
-		if (fwrite(buffer, sizeof(char), lettersRead, stdout) != lettersRead)
-			return (0);
-		totalLetters += lettersRead;
-		letters -= lettersRead;
-	}
-	return (totalLetters);
+	
+	lettersRead = read(file, buffer, letters);
+	write(stdout, buffer, lettersRead);
+	close(file);
+	free(buffer);
+	return (lettersRead);
 }
