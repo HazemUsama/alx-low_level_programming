@@ -12,9 +12,9 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *file;
-	size_t printed;
+	size_t readLetters, printed;
 	char *buffer = malloc(letters);
-	
+
 	if (filename == NULL || buffer == NULL)
 		return (0);
 
@@ -22,9 +22,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (file == NULL)
 		return (0);
 
-	fread(buffer, sizeof(char), letters, file); 
-	printed = fwrite(buffer, sizeof(char), letters, stdout);
-	
+	readLetters = fread(buffer, sizeof(char), letters, file);
+	printed = fwrite(buffer, sizeof(char), readLetters, stdout);
+
 	fclose(file);
 	free(buffer);
 
