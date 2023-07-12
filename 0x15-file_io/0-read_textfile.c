@@ -12,19 +12,21 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *file;
-	size_t lettersRead, totalLetters = 0;
+	size_t printed;
 	char *buffer = malloc(letters);
-
+	
 	if (filename == NULL || buffer == NULL)
 		return (0);
 
-	file = open(filename, "r");
-	if (file == -1)
+	file = fopen(filename, "r");
+	if (file == NULL)
 		return (0);
+
+	fread(buffer, sizeof(char), letters, file); 
+	printed = fwrite(buffer, sizeof(char), letters, stdout);
 	
-	lettersRead = read(file, buffer, letters);
-	write(stdout, buffer, lettersRead);
-	close(file);
+	fclose(file);
 	free(buffer);
-	return (lettersRead);
+
+	return (printed);
 }
