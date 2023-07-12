@@ -28,6 +28,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (fwrite(buffer, sizeof(char), lettersRead, stdout) != lettersRead)
 			return (0);
 		totalLetters += lettersRead;
+		letters -= lettersRead;
 	}
 	return (totalLetters);
 }
