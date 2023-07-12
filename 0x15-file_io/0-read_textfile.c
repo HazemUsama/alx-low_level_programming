@@ -16,8 +16,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *buffer = malloc(letters);
 
 	if (filename == NULL || buffer == NULL)
+	{
+		free(buffer);
 		return (0);
-
+	}
 	file = fopen(filename, "r");
 	if (file == NULL)
 		return (0);
