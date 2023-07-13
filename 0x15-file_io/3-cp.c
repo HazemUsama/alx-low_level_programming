@@ -1,5 +1,14 @@
 #include "main.h"
 
+/**
+ * main - program that copies the content of a file to another file
+ *
+ * @ac: argument count
+ *
+ * @av: arguments
+ *
+ * Return: 0 on success
+ */
 int main(int ac, char **av)
 {
 	int file_from, file_to, readLetters, printedLetters;
@@ -11,12 +20,12 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	file_from = open(av[1],  O_RDONLY);
-	file_to = open(av[2],  O_CREAT | O_TRUNC | O_WRONLY, 0664); 
-	
+	file_to = open(av[2],  O_CREAT | O_TRUNC | O_WRONLY, 0664);
+
 	if (file_from == -1)
 	{
-		readError:
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",av[1]);
+readError:
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	while ((readLetters = read(file_from, buffer, 1024)))
@@ -35,5 +44,5 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd -1\n");
 		exit(100);
 	}
-	return(0);
+	return (0);
 }
