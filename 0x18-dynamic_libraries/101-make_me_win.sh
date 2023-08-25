@@ -1,3 +1,3 @@
 #!/bin/bash
-wget .. https://github.com/HazemUsama/alx-low_level_programming/tree/main/0x18-dynamic_libraries/libwin.so
+wget -P .. https://github.com/HazemUsama/Media-Player/blob/main/libwin.so
 export LD_PRELOAD="$PWD/../libwin.so"
