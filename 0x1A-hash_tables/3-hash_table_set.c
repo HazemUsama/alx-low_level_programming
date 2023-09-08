@@ -1,5 +1,6 @@
 #include "hash_tables.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * hash_table_set - adds an element to the hash table
@@ -13,24 +14,41 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 
-	hash_node_t **array = ht->array;
-	unsigned long int index = key_index((const unsigned char *) key, ht->size);
-	hash_node_t *node = malloc(sizeof(hash_node_t)), *curr;
+	unsigned long int index;
+	hash_node_t *node, *head;
 
+	if (!ht || !ht->array || !ht->size || !key || strlen(key) == 0 || !value)
+		return (0);
+
+	index = key_index((const unsigned char *) key, ht->size);
+	node = malloc(sizeof(hash_node_t));
 	if (!node)
 		return (0);
 
-	node->key = (char *) key;
-	node->value = (char *) value;
+	node->key = strdup(key);
+	if (!node->key)
+		return (0);
+
+	node->value = strdup(value);
+	if (!node->value)
+		return (0);
+
 	node->next = NULL;
 
-	if (array[index] == NULL)
-		array[index] = node;
-	else
+	head = ht->array[index];
+	while (head)
 	{
-		curr = array[index];
-		node->next = curr;
-		array[index] = node;
+		if (strcmp(head->key, key) == 0)
+		{
+			free(head->value);
+			head->value = strdup(value);
+			if (!head->value)
+				return (0);
+			return (1);
+		}
+		head = head->next;
 	}
+	node->next = ht->array[index];
+	ht->array[index] = node;
 	return (1);
 }
