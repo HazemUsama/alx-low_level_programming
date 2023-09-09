@@ -1,5 +1,10 @@
 #include "hash_tables.h"
 
+/**
+ * hash_table_delete - deletes a hash table
+ *
+ * @ht: the hast table
+ */
 void hash_table_delete(hash_table_t *ht)
 {
 	size_t i;
@@ -7,6 +12,11 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (!ht)
 		return;
+	if (!ht->array)
+	{
+		free(ht);
+		return;
+	}
 	for (i = 0; i < ht->size; i++)
 	{
 		curr = ht->array[i];
