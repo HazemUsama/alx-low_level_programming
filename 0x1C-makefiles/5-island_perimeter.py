@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+"""Island Perimeter Module"""
 
 def island_perimeter(grid):
+    """Implementation of the solution"""
         ans = 0
         row = [1, 0, -1, 0]
         column = [0, 1, 0, -1]
